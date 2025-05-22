@@ -19,15 +19,15 @@ class DatabaseSeeder extends Seeder
         User::create(['name' => 'John Doe', 'email' => 'john@doe.com', 'password' => Hash::make('John@123')]);
         User::create(['name' => 'Mike Doe', 'email' => 'mike@doe.com', 'password' => Hash::make('Mike@123')]);
 
-        // $users = User::factory(100)->create();
+        $users = User::factory(100)->create();
 
-        // $campaigns = Campaign::factory(10)->recycle($users)->create();
+        $campaigns = Campaign::factory(10)->recycle($users)->create();
 
-        // $donations = Donation::factory(60)->recycle($users)
-        //     ->recycle($campaigns)
-        //     ->create();
+        $donations = Donation::factory(60)->recycle($users)
+            ->recycle($campaigns)
+            ->create();
 
-        // DonationTransaction::factory(80)->recycle($donations)
-        //     ->create();
+        DonationTransaction::factory(80)->recycle($donations)
+            ->create();
     }
 }
